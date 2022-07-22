@@ -1,0 +1,47 @@
+.QR_card {
+  width: 300px;
+  height: 430px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: 0.2s;
+  margin: 0;
+  scroll-snap-align: start;
+  clear: both;
+  position: relative;
+  justify-content: space-between;
+  border-radius: 10px;
+  box-shadow: -1.2rem 0 1rem #000;
+  background: white;
+}
+
+.QR_card:focus-within ~ .QR_card,
+.QR_card:hover ~ .QR_card {
+  transform: translateX(200px);
+}
+
+.QR_card:hover {
+  transform: translateY(-1rem);
+}
+
+.QR_card:not(:first-child) {
+  margin-left: -200px;
+}
+
+.QR_card_img {
+  width: 200px;
+  height: fit-content;
+}
+
+.QR_imgDecorator {
+  margin-top: 10px;
+  padding: 20px 15px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.QR_card_title {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
