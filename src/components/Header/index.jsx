@@ -8,11 +8,16 @@ const Header = () => {
       <span className="logo">
         <img src="./favicon.png" />
       </span>
-      <ul className="menu">
-        <li>Ingresar</li>
-        <li>Mis QR</li>
-        <li>Generar QR</li>
-      </ul>
+      <div className="menu">
+        <div className="menu_logo">
+          <div className="menu_logo_cross">+</div>
+        </div>
+        {/* <ul>
+          <li>Ingresar</li>
+          <li>Mis QR</li>
+          <li>Generar QR</li>
+        </ul> */}
+      </div>
     </header>
   );
 };
