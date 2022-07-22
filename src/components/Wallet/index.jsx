@@ -48,6 +48,7 @@ const Wallet = () => {
           {Wallet.QRList.map((element) => (
             <QR
               key={element.index}
+              tag="li"
               title={element.qr.title}
               link={element.qr.link}
               primaryColor={element.qr.primaryColor}
