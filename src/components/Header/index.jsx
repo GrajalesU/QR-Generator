@@ -20,9 +20,9 @@ const Header = () => {
             }}
           />
           <ul>
-            <li>Ingresar</li>
-            <li>Mis QR</li>
-            <li>Generar QR</li>
+            <li>Log in</li>
+            <li>My QR's</li>
+            <li>Generate QR</li>
           </ul>
         </div>
       </div>
