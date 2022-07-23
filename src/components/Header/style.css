@@ -57,6 +57,7 @@ header .menu {
   width: 100%;
   height: 100%;
   opacity: 0;
+  cursor: pointer;
 }
 
 .menu ul {
@@ -84,7 +85,17 @@ header .menu {
   padding: 10px 15px;
 }
 
+.menu li {
+  color: #09f;
+  font-weight: 600;
+}
+
 .x {
   transform: rotate(45deg);
   transform-origin: center;
+}
+
+.menu li:hover {
+  cursor: pointer;
+  color: rgb(126, 203, 255);
 }
