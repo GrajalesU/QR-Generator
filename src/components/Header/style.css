@@ -64,9 +64,9 @@ header .menu {
 .menu ul {
   list-style: none;
   position: inherit;
-  left: -140%;
+  left: -170%;
   top: 100%;
-  width: 375%;
+  width: 405%;
   padding: 10px;
   transition: 0.2s;
   opacity: 0;
