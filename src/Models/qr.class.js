@@ -2,18 +2,20 @@ import QRCode from "qrcode";
 
 export class Qr {
   link = "";
-  title = "";
+  title = {};
+  titleColor = "#000000";
   img = {
     src: "",
-    primaryColor: "",
-    secondaryColor: "",
+    primaryColor: "#fff",
+    secondaryColor: "#000",
   };
 
-  constructor(title, link, primaryColor, secondaryColor) {
+  constructor(title, link, primaryColor, secondaryColor, titleColor) {
     this.title = title;
     this.link = link;
     this.img.primaryColor = primaryColor;
     this.img.secondaryColor = secondaryColor;
+    this.titleColor = titleColor;
   }
 
   generateQR() {
