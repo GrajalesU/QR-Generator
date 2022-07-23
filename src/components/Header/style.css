@@ -40,6 +40,7 @@ header .menu {
   transform: translate(-50%, -50%);
   background-color: #09f;
   border-radius: 50%;
+  transition: 0.2s;
 }
 
 .menu_logo_cross {
@@ -48,4 +49,42 @@ header .menu {
   font-size: 2rem;
   font-weight: bold;
   line-height: 100%;
+  transition: 0.2s;
+}
+
+.menu_logo input {
+  transform: translateY(-100%);
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.menu ul {
+  list-style: none;
+  position: inherit;
+  left: -140%;
+  top: 100%;
+  width: 375%;
+  padding: 10px;
+  transition: 0.2s;
+  opacity: 0;
+  visibility: hidden;
+  background-color: rgb(242, 250, 255);
+  text-align: left;
+  z-index: 3;
+}
+
+.menu input:checked ~ ul {
+  visibility: visible;
+  opacity: 1;
+}
+
+.menu input:checked ~ ul {
+  background: rgb(242, 250, 255);
+  padding: 10px 15px;
+}
+
+.x {
+  transform: rotate(45deg);
+  transform-origin: center;
 }
