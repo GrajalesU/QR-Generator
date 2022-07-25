@@ -1,5 +1,5 @@
 import React from "react";
-
+import ".//styles.css";
 const Login = () => {
   return (
     <div className="login">
@@ -13,6 +13,7 @@ const Login = () => {
           <label htmlFor="Password">Password</label>
           <input id="Password" type="password" />
         </div>
+        <button>Login</button>
       </form>
     </div>
   );
