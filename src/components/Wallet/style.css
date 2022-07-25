@@ -8,7 +8,10 @@
 }
 
 .wallet_title {
-  margin-bottom: 10px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #09f;
+  margin: 15px 0;
 }
 
 .wallet_list {
@@ -31,19 +34,12 @@
   display: none; /* for Chrome, Safari, and Opera */
 }
 
-.wallet h2{
-  font-size: 2rem;
-  font-weight: bold;
-  color: #09f;
-  margin: 15px 0;
-}
-
-.wallet_slider_controller{
+.wallet_slider_controller {
   margin: 3px 0;
 }
 
-.wallet_slider_controller button{
-  background-color: #00A6ED;
+.wallet_slider_controller button {
+  background-color: #00a6ed;
   border: none;
   color: white;
   padding: 5px 20px;
