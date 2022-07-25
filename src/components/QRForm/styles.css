@@ -1,0 +1,92 @@
+.qr_form {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 0 auto;
+}
+
+.qr_form h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #09f;
+  margin: 15px 0;
+}
+
+.qr_form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.qr_form form .qr_form_link,
+.qr_form_title,
+.qr_form_colors {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  width: 100%;
+  height: 100%;
+}
+
+.qr_form label {
+  width: 100%;
+  text-align: left;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #09f;
+  margin-top: 10px;
+}
+
+.qr_form_link input,
+.qr_form_title_text input {
+  width: 100%;
+  text-align: left;
+  border: none;
+  border-bottom: 2px solid #09f;
+  font-size: 1.3rem;
+}
+
+.qr_form_title,
+.qr_form_colors {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.qr_form_title small {
+  width: 100%;
+}
+
+small {
+  font-size: 0.8rem;
+  color: rgb(119, 119, 119);
+  text-align: left;
+}
+
+.qr_form_colors_section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
+.qr_form_colors_section *{
+  text-align: center !important;
+  margin-top: 10px;
+}
+
+.qr_form form button{
+  width: 100%;
+  height: 50px;
+  background-color: #09f;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
