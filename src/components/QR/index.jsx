@@ -2,7 +2,7 @@ import React from "react";
 import { Qr } from "../../Models/qr.class";
 import "./style.css";
 
-const QR = ({ title, link, primaryColor, secondaryColor, tag }) => {
+const QR = ({ title, link, primaryColor, secondaryColor, titleColor, tag }) => {
   const QR = new Qr(title, link, primaryColor, secondaryColor);
   QR.generateQR();
   const CustomTag = tag ? `${tag}` : "div";
@@ -11,7 +11,9 @@ const QR = ({ title, link, primaryColor, secondaryColor, tag }) => {
       <div className="QR_imgDecorator">
         <img src={QR.img.src} alt={`QR of ${title}`} className="QR_card_img" />
       </div>
-      <h4 className="QR_card_title">{QR.title}</h4>
+      <h4 className="QR_card_title" style={{ color: titleColor }}>
+        {QR.title}
+      </h4>
       <span>➡️ SHARE</span>
     </CustomTag>
   );
