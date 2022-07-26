@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import QR from "../QR";
-import { Wallet as WalletM } from "../../Models/wallet.class";
 import "./style.css";
 import { useLiveQuery } from "dexie-react-hooks";
 import { db } from "../../DB/db";
