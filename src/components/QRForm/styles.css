@@ -39,8 +39,8 @@
   margin-top: 10px;
 }
 
-.qr_form_link input,
-.qr_form_title_text input {
+.qr_form_link .input,
+.qr_form_title_text .input {
   width: 100%;
   text-align: left;
   border: none;
