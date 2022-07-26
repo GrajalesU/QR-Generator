@@ -2,44 +2,15 @@ import React, { useRef, useState } from "react";
 import QR from "../QR";
 import { Wallet as WalletM } from "../../Models/wallet.class";
 import "./style.css";
+import { useLiveQuery } from "dexie-react-hooks";
+import { db } from "../../DB/db";
+
 const Wallet = () => {
-  const Wallet = new WalletM([
-    { qr: { link: "https://www.google.com/", title: "google" }, index: "0" },
-    { qr: { link: "https://www.google.com/", title: "google" }, index: "0" },
-    { qr: { link: "https://www.google.com/", title: "google" }, index: "0" },
-    {
-      qr: {
-        link: "https://www.facebook.com/",
-        title: "facebook",
-        primaryColor: "#3b5998",
-      },
-      index: "1",
-    },
-    {
-      qr: {
-        link: "https://www.instagram.com/",
-        title: "instagram",
-        primaryColor: "#e1306c",
-      },
-      index: "2",
-    },
-    {
-      qr: {
-        link: "https://www.twitter.com/",
-        title: "twitter",
-        primaryColor: "#1da1f2",
-      },
-      index: "3",
-    },
-    {
-      qr: {
-        link: "https://www.youtube.com/",
-        title: "youtube",
-        primaryColor: "#ff0000",
-      },
-      index: "4",
-    },
-  ]);
+  
+  const wallet = useLiveQuery(async () => {
+    return await db.qr.toArray();
+  });
+
   const [animation, setAnimation] = useState(false);
   const list = useRef(null);
   const handleScrollLeft = () => {
@@ -68,14 +39,15 @@ const Wallet = () => {
       <h2 className="wallet_title">Your QRs</h2>
       <div>
         <ul ref={list} className="wallet_list">
-          {Wallet.QRList.map((element) => (
+          {wallet?.map((element) => (
             <QR
-              key={element.index}
+              key={element.id}
               tag="li"
-              title={element.qr.title}
-              link={element.qr.link}
-              primaryColor={element.qr.primaryColor}
-              secondaryColor={element.qr.secondaryColor}
+              title={element.title}
+              link={element.link}
+              titleColor={element.titleColor}
+              primaryColor={element.primaryColor}
+              secondaryColor={element.secondaryColor}
             />
           ))}
         </ul>
