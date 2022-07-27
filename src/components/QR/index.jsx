@@ -14,7 +14,14 @@ const QR = ({ title, link, primaryColor, secondaryColor, titleColor, tag }) => {
       <h4 className="QR_card_title" style={{ color: titleColor }}>
         {QR.title}
       </h4>
-      <span>➡️ SHARE</span>
+      <div className="QR_card_menu">
+        <div className="QR_card_share">
+          <img src="./share.png" alt="share"/>
+        </div>
+        <div className="QR_card_edit">
+          <img src="./edit.png" alt="edit" />
+        </div>
+      </div>
     </CustomTag>
   );
 };
