@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 const Header = () => {
@@ -20,9 +21,15 @@ const Header = () => {
             }}
           />
           <ul>
-            <li>Log in</li>
-            <li>My QR's</li>
-            <li>Generate QR</li>
+            <li>
+              <Link to={"/login"}>Log in</Link>
+            </li>
+            <li>
+              <Link to="/">My QR's</Link>
+            </li>
+            <li>
+              <Link to={"/add"}>Generate QR</Link>
+            </li>
           </ul>
         </div>
       </div>
