@@ -43,6 +43,7 @@ const Wallet = () => {
               {wallet?.map((element) => (
                 <QR
                   key={element.id}
+                  id={element.id}
                   tag="li"
                   title={element.title}
                   link={element.link}
