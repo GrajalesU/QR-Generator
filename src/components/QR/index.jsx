@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Qr } from "../../Models/qr.class";
 import "./style.css";
+import { db } from "../../DB/db";
 
 const QR = ({
   title,
@@ -15,6 +16,10 @@ const QR = ({
   const QR = new Qr(title, link, primaryColor, secondaryColor);
   QR.generateQR();
   const CustomTag = tag ? `${tag}` : "div";
+
+  const handleDelete = async (id) => {
+    await db.qr.delete(id);
+  };
   return (
     <CustomTag className="QR_card" style={{ background: primaryColor }}>
       <div className="QR_imgDecorator">
@@ -32,7 +37,7 @@ const QR = ({
             <img src="./edit.png" alt="edit" />
           </Link>
         </div>
-        <div className="QR_card_delete">
+        <div className="QR_card_delete" onClick={() => handleDelete(id)}>
           <img src="./trash.png" alt="delete" />
         </div>
       </div>

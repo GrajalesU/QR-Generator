@@ -55,7 +55,7 @@
   margin-top: 1rem;
 }
 
-.QR_card_edit:hover {
+.QR_card_edit:hover , .QR_card_delete:hover {
   opacity: 0.7;
   cursor: pointer;
 }
