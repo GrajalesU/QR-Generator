@@ -8,7 +8,7 @@ const Header = () => {
     <header>
       <h1>QR Generator</h1>
       <span className="logo">
-        <img src="./favicon.png" />
+        <img src="/favicon.png" />
       </span>
       <div className="menu">
         <div className="menu_logo">
