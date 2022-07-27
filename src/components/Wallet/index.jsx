@@ -3,9 +3,9 @@ import QR from "../QR";
 import "./style.css";
 import { useLiveQuery } from "dexie-react-hooks";
 import { db } from "../../DB/db";
+import NoContent from "../NoContent";
 
 const Wallet = () => {
-  
   const wallet = useLiveQuery(async () => {
     return await db.qr.toArray();
   });
@@ -37,19 +37,23 @@ const Wallet = () => {
     <div className="wallet">
       <h2 className="wallet_title">Your QRs</h2>
       <div>
-        <ul ref={list} className="wallet_list">
-          {wallet?.map((element) => (
-            <QR
-              key={element.id}
-              tag="li"
-              title={element.title}
-              link={element.link}
-              titleColor={element.titleColor}
-              primaryColor={element.primaryColor}
-              secondaryColor={element.secondaryColor}
-            />
-          ))}
-        </ul>
+        {wallet.length > 0 ? (
+          <ul ref={list} className="wallet_list">
+            {wallet?.map((element) => (
+              <QR
+                key={element.id}
+                tag="li"
+                title={element.title}
+                link={element.link}
+                titleColor={element.titleColor}
+                primaryColor={element.primaryColor}
+                secondaryColor={element.secondaryColor}
+              />
+            ))}
+          </ul>
+        ) : (
+          <NoContent />
+        )}
         <div className="wallet_slider_controller">
           <button
             onMouseEnter={() => handleHover(false)}
