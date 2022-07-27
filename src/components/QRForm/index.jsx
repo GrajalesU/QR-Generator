@@ -3,12 +3,13 @@ import { db } from "../../DB/db";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "./styles.css";
+import { useNavigate } from "react-router-dom";
 
 const QRForm = () => {
   const initialValues = {
     link: "",
     title: "",
-    titleColor: "#000000",
+    titleColor: "#ffffff",
     primaryColor: "#000000",
     secondaryColor: "#ffffff",
   };
@@ -21,6 +22,8 @@ const QRForm = () => {
     secondaryColor: Yup.string().required("Secondary color is required"),
   });
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (
     { link, title, titleColor, primaryColor, secondaryColor },
     { setSubmitting }
@@ -28,6 +31,7 @@ const QRForm = () => {
     console.log({ link, title, titleColor, primaryColor, secondaryColor });
     await db.qr.add({ link, title, titleColor, primaryColor, secondaryColor });
     setSubmitting(false);
+    navigate("/");
   };
 
   return (
