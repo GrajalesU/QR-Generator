@@ -1,0 +1,27 @@
+.noContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  max-width: 450px;
+  min-height: 500px;
+}
+
+.noContent_text{
+  font-size: 2rem;
+  font-weight: bolder;
+  margin-bottom: 20px;
+  text-align: center;
+  line-height: 1.25;
+}
+
+.noContent_link{
+  color: #09f;
+  text-decoration: none;
+}
+
+.noContent_link:hover{
+  opacity: 0.6;
+}
