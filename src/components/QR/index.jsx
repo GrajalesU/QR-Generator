@@ -3,7 +3,15 @@ import { Link } from "react-router-dom";
 import { Qr } from "../../Models/qr.class";
 import "./style.css";
 
-const QR = ({ title, link, primaryColor, secondaryColor, titleColor, tag, id }) => {
+const QR = ({
+  title,
+  link,
+  primaryColor,
+  secondaryColor,
+  titleColor,
+  tag,
+  id,
+}) => {
   const QR = new Qr(title, link, primaryColor, secondaryColor);
   QR.generateQR();
   const CustomTag = tag ? `${tag}` : "div";
@@ -20,7 +28,7 @@ const QR = ({ title, link, primaryColor, secondaryColor, titleColor, tag, id }) 
           <img src="./share.png" alt="share" />
         </div>
         <div className="QR_card_edit">
-          <Link to={`/edit?id=${id}`}>
+          <Link to={`/edit/${id}`}>
             <img src="./edit.png" alt="edit" />
           </Link>
         </div>
