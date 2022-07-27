@@ -87,7 +87,6 @@ header .menu {
 }
 
 .menu li {
-  color: #09f;
   font-weight: 600;
 }
 
@@ -99,4 +98,9 @@ header .menu {
 .menu li:hover {
   cursor: pointer;
   color: rgb(126, 203, 255);
+}
+
+.menu a{
+  color: #09f;
+  text-decoration: none;
 }
