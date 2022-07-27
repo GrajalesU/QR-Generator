@@ -15,6 +15,7 @@ function App() {
           <Route exact path="/" element={<Container />} />
           <Route path="/login" element={<Login />} />
           <Route path="/add" element={<QRForm />} />
+          <Route path="/edit/:id" element={<QRForm edit />} />
           <Route path="*" element={<Container />} />
         </Routes>
         <Footer />
