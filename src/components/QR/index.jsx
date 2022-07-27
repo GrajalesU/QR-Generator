@@ -32,6 +32,9 @@ const QR = ({
             <img src="./edit.png" alt="edit" />
           </Link>
         </div>
+        <div className="QR_card_delete">
+          <img src="./trash.png" alt="delete" />
+        </div>
       </div>
     </CustomTag>
   );
