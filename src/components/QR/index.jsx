@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Qr } from "../../Models/qr.class";
 import "./style.css";
 
-const QR = ({ title, link, primaryColor, secondaryColor, titleColor, tag }) => {
+const QR = ({ title, link, primaryColor, secondaryColor, titleColor, tag, id }) => {
   const QR = new Qr(title, link, primaryColor, secondaryColor);
   QR.generateQR();
   const CustomTag = tag ? `${tag}` : "div";
