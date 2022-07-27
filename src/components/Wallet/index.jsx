@@ -37,37 +37,39 @@ const Wallet = () => {
     <div className="wallet">
       <h2 className="wallet_title">Your QRs</h2>
       <div>
-        {wallet.length > 0 ? (
-          <ul ref={list} className="wallet_list">
-            {wallet?.map((element) => (
-              <QR
-                key={element.id}
-                tag="li"
-                title={element.title}
-                link={element.link}
-                titleColor={element.titleColor}
-                primaryColor={element.primaryColor}
-                secondaryColor={element.secondaryColor}
-              />
-            ))}
-          </ul>
+        {wallet?.length ? (
+          <>
+            <ul ref={list} className="wallet_list">
+              {wallet?.map((element) => (
+                <QR
+                  key={element.id}
+                  tag="li"
+                  title={element.title}
+                  link={element.link}
+                  titleColor={element.titleColor}
+                  primaryColor={element.primaryColor}
+                  secondaryColor={element.secondaryColor}
+                />
+              ))}
+            </ul>
+            <div className="wallet_slider_controller">
+              <button
+                onMouseEnter={() => handleHover(false)}
+                onMouseLeave={handleLeave}
+              >
+                ⬅️
+              </button>
+              <button
+                onMouseEnter={() => handleHover(true)}
+                onMouseLeave={handleLeave}
+              >
+                ➡️
+              </button>
+            </div>
+          </>
         ) : (
           <NoContent />
         )}
-        <div className="wallet_slider_controller">
-          <button
-            onMouseEnter={() => handleHover(false)}
-            onMouseLeave={handleLeave}
-          >
-            ⬅️
-          </button>
-          <button
-            onMouseEnter={() => handleHover(true)}
-            onMouseLeave={handleLeave}
-          >
-            ➡️
-          </button>
-        </div>
       </div>
     </div>
   );
