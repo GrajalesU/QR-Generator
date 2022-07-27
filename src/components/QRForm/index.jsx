@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { db } from "../../DB/db";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "./styles.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-const QRForm = () => {
+const QRForm = ({ edit }) => {
   const initialValues = {
     link: "",
     title: "",
@@ -22,22 +22,55 @@ const QRForm = () => {
     secondaryColor: Yup.string().required("Secondary color is required"),
   });
 
+  const id = parseInt(useParams()?.id);
+  const formikRef = useRef();
+
+  useEffect(() => {
+    edit &&
+      db.qr.get(id).then((data) => {
+        formikRef.current.setFieldValue("link", data.link);
+        formikRef.current.setFieldValue("title", data.title);
+        formikRef.current.setFieldValue("titleColor", data.titleColor);
+        formikRef.current.setFieldValue("primaryColor", data.primaryColor);
+        formikRef.current.setFieldValue("secondaryColor", data.secondaryColor);
+      });
+  }, []);
+
   const navigate = useNavigate();
 
   const handleSubmit = async (
     { link, title, titleColor, primaryColor, secondaryColor },
     { setSubmitting }
   ) => {
-    console.log({ link, title, titleColor, primaryColor, secondaryColor });
-    await db.qr.add({ link, title, titleColor, primaryColor, secondaryColor });
-    setSubmitting(false);
-    navigate("/");
+    if (!edit) {
+      await db.qr.add({
+        link,
+        title,
+        titleColor,
+        primaryColor,
+        secondaryColor,
+      });
+      setSubmitting(false);
+      navigate("/");
+    } else {
+      await db.qr.put({
+        id,
+        link,
+        title,
+        titleColor,
+        primaryColor,
+        secondaryColor,
+      });
+      setSubmitting(false);
+      navigate("/");
+    }
   };
 
   return (
     <div className="qr_form">
-      <h2>Create a new QR</h2>
+      <h2>{edit ? "Edit your QR" : "Create new QR"} </h2>
       <Formik
+        innerRef={formikRef}
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
@@ -96,7 +129,7 @@ const QRForm = () => {
                 )}
               </div>
             </div>
-            <button type="submit">Create</button>
+            <button type="submit">{edit ? "EDIT" : "CREATE"}</button>
             {isSubmitting && <p>Loading...</p>}
           </Form>
         )}
